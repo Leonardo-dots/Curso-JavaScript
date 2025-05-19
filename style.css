@@ -1,0 +1,126 @@
+/*Reset estilos*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/*Pagina Inicio*/
+body{
+    background-image: url(imagen/fondos/fondo_2.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100dvh;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+    height: 85dvh;
+    padding-top: 10rem;
+}
+h1{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 6rem;
+    user-select: none;
+}
+.container_buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.container_buttons > button{
+    cursor: pointer;
+    padding: 1.6rem;
+    font-size: 1.3rem;
+    color: whitesmoke;
+    border-radius: 10px;
+    background-color: #fff6;
+    border: 1px solid whitesmoke;
+    width: clamp(200px, 15vw, 600px);
+    transition: box-shadow 500ms, background-color 1s;
+    white-space: nowrap;
+}
+.container_buttons > button:hover{
+    box-shadow: 0 0 5px 2px rgb(255, 173, 50);
+    background-color: rgb(205, 163, 50);
+}
+
+/*Compra Helados*/
+
+.buscador{
+    width: 50%;
+    margin: auto;
+    background-color: white;
+    border-radius: 50px;
+    color: black;
+    font-size: 1.6rem;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.buscador input{
+    width: 75%;
+    font-size: 1.4rem;
+    border: none;
+    outline: none;
+}
+/* Cartas de productos */
+.container_cards{
+    max-width: 1080px;
+    margin: 40px auto;
+    padding: 10px;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+.card{
+    max-width: 500px;
+    max-height: 300px;
+    display: flex;
+    gap: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+.card:hover{
+    box-shadow: 0 0 6px 2px whitesmoke;
+}
+.container_card_img{
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+}
+.container_card_img img{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.container_card_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    padding: 30px;
+}
+h3{
+    font-size: 1.4rem;
+}
+h3, p, span{
+    margin: 8px;
+}
+.precio{
+    width: fit-content;
+    padding: 5px;
+    background-color: #444;
+    color: whitesmoke;
+    font-weight: bold;
+}
