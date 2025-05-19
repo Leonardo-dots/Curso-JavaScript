@@ -7,8 +7,7 @@ const helados = [
     {nombre: "Crema Oreo y Red Velvet", imagen: "imagen/helados/crema_oreo_y_red_velvet.jpeg", descripcion: "Helado con sabor vainilla con pedazos de galleta Oreo y Red Velvet.", precio: 3700}
 ];
 
-let carrito = [];
-let carritoStorage = Number(JSON.parse(localStorage.getItem("carrito"))) || [];
+let carritoStorage = [Number(JSON.parse(localStorage.getItem("carrito")))] || [];
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -59,10 +58,12 @@ function pagina(hash){
             input.addEventListener("input", () => {
                 let texto = input.value.toLowerCase();
                 let filtrado = helados.filter(helado => helado.nombre.toLowerCase().includes(texto));
-                renderHelados(main, filtrado);
+                renderHelados(main, filtrado, agregarCarrito);
             });
             input.dispatchEvent(new Event("input"));
             input.focus();
+
+
 
             main.style.cssText = "padding: 0;";
             header.style.cssText = "margin-top: 40px";
@@ -70,7 +71,7 @@ function pagina(hash){
     }
 }  
 
-function renderHelados(main, filtrados){
+function renderHelados(main, filtrados, fnCards){
     const container_cards = document.createElement("div");
     container_cards.classList.add("container_cards");
     main.innerHTML = "";
@@ -87,6 +88,27 @@ function renderHelados(main, filtrados){
             </div>
         </div>`);
     main.appendChild(container_cards);
+    fnCards();
 }
 
+function agregarCarrito(){
+    cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+        const nombre = card.querySelector("h3").textContent;
+        const precio = Number(card.querySelector(".precio").textContent.replace("$", ""));
+        card.addEventListener("click", () => {
+            carritoStorage.push(precio);
+            /*Toastify*/
+            Toastify({
+            text: `${nombre} agregado al carrito`,
+            duration: 2000,
+            style: {
+                background: "#f29be0"
+            },
+        }).showToast();
+        if(carritoStorage.length > 1) carritoStorage = [carritoStorage.reduce((acc, precio) => acc + precio, 0)];
+        localStorage.setItem("carrito", JSON.stringify(carritoStorage));
+        })
+    })
+}
 

@@ -53,7 +53,7 @@ h1{
 /*Compra Helados*/
 
 .buscador{
-    width: 50%;
+    width: clamp(400px, 50%, 700px);
     margin: auto;
     background-color: white;
     border-radius: 50px;
