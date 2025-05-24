@@ -90,6 +90,7 @@ h1{
     overflow: hidden;
     background-color: whitesmoke;
     cursor: pointer;
+    position: relative;
 }
 .card:hover{
     box-shadow: 0 0 6px 2px whitesmoke;
@@ -123,4 +124,104 @@ h3, p, span{
     background-color: #444;
     color: whitesmoke;
     font-weight: bold;
+}
+/* Boton para continuar con la compra */
+
+.continuar{
+    position: absolute;
+    width: fit-content;
+    background-color: #fff;
+    color: black;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 12px 24px;
+    border-radius: 25px;
+    letter-spacing: 1px;
+    transition: box-shadow 500ms;
+}
+.continuar:hover{
+    box-shadow: 0 0 6px 2px #ccc;
+}
+
+/*Compra de Helados*/
+.carrusel, .totalCarrito{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: clamp(300px, 50vh, 700px);
+    width: clamp(400px, 30dvw, 600px);
+    background-color: white;
+    border-radius: 20px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    position: relative;
+}
+.totalCarrito{
+    height: fit-content;
+    width: clamp(200px, 30%, 500px);
+    padding: 1.4rem;
+    gap: 12px;
+    justify-content: center;
+}
+.totalCarrito > input{
+    padding: 2px;
+    margin: 4px 0;
+    font-size: 1rem;
+}
+.btnVaciar{
+    padding: 15px;
+    font-size: 1.1rem;
+    background-color: #ff4d4d;
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+}
+.spanCantidad{
+    position: absolute;
+    font-size: 0.8rem;
+    padding: 6px;
+    top: -4px;
+    right: -4px;
+    background-color: #f29be0;
+    border-radius: 50%;
+}
+.total{
+    position: absolute;
+    font-size: 0.8rem;
+    padding: 5px;
+    top: -3px;
+    right: 26px;
+    background-color: #f29be0;
+    border-radius: 10px;
+}
+h2{
+    background-color: #f29be0;
+    padding: 8px;
+    border-radius: 12px;
+}
+.spanPago, .conversion{
+    margin: 0;
+    padding: 0;
+}
+.pago, .conversion{
+    background-color: #444;
+    color: whitesmoke;
+    padding: 3px;
+    border-radius: 5px;
+}
+.comprar{
+    width: 100%;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #f29be0;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.1rem;
 }
