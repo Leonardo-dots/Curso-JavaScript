@@ -20,10 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
     pagina(window.location.hash);
 });
 
-document.querySelector("#btn_comprar").addEventListener("click", () => window.location.hash = "#helados");
-document.querySelector("#btn_agregarProducto");
-document.querySelector("#btn_apagarSistema");
-})
+if(window.location.hash == "#home") document.querySelector("#btn_comprar").addEventListener("click", () => window.location.hash = "#helados");
+});
+
 
 const main = document.querySelector("main");
 const header = document.querySelector("header");
@@ -37,8 +36,6 @@ function pagina(hash){
             <h1>Heladeria Pepito</h1>
             <div class="container_buttons">
                 <button id="btn_comprar">Comprar</button>
-                <button id="btn_agregarProducto">Agregar producto</button>
-                <button id="btn_apagarSistema">Apagar Sistema</button>
             </div>`
 
             document.querySelector("#btn_comprar").addEventListener("click", () => window.location.hash = "#helados");
@@ -190,7 +187,7 @@ function pagina(hash){
                 }
 
                 const inputMoneda = document.querySelector("#inputMoneda");
-                inputMoneda.value = "USD";
+                inputMoneda.value = "ARS";
                 const convertido = document.querySelector(".conversion");
 
                 inputMoneda.addEventListener("input", ()=> {
@@ -205,8 +202,19 @@ function pagina(hash){
 
                 const button = document.querySelector(".comprar");
                 button.addEventListener("click", ()=>{
-                    main.innerHTML = "";
-                    
+                    localStorage.removeItem("nombres");
+                    localStorage.removeItem("carrito");
+                    carritoStorage = [];
+                    nombreStorage = [];
+                    main.innerHTML = `
+                    <l-jelly-triangle size="90" speed="2" color="white"></l-jelly-triangle>` 
+                    setTimeout(() =>{
+                        main.innerHTML = "";
+                        main.innerHTML = `<h1> Gracias por su compra! </h1>`;
+                        setTimeout(() =>{
+                        window.location.hash = "#home";
+                        },2000);
+                    },3000);
                 })
             }
             break;
